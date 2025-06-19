@@ -1,0 +1,16 @@
+# Compiler flags for your own headers only
+PKG_CPPFLAGS = -I./core -I./utils
+
+# List of object files to compile
+OBJECTS = \
+    RcppExports.o \
+    exports.o \
+    core/skew_normal.o \
+    core/skew_t.o \
+    utils/integration.o \
+    utils/root_finding.o \
+    utils/special_functions.o
+
+# Linker flags for Rcpp and GSL
+# This explicitly adds GSL libraries to the linking step
+PKG_LIBS = $(shell PKG_LIBS=`Rscript -e "Rcpp:::LdFlags()"` $(R_HOME)/bin/R CMD config LDFLAGS) $(shell gsl-config --libs)

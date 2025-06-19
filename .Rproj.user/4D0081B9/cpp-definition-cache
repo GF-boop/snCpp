@@ -1,0 +1,370 @@
+[
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/core/distributions.hpp",
+        "file_last_write": 1750322318.0,
+        "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+        "file_last_write": 1750363434.0,
+        "definitions": [
+            {
+                "usr": "c:skew_normal.cpp@aN@F@pdf_standard#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "pdf_standard(double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 17,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:skew_normal.cpp@aN@F@cdf_standard#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "cdf_standard(double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 23,
+                "column": 10,
+                "hidden": false
+            },
+            {
+                "usr": "c:skew_normal.cpp@aN@F@get_cumulants_standard#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "get_cumulants_standard(double)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 33,
+                "column": 23,
+                "hidden": false
+            },
+            {
+                "usr": "c:skew_normal.cpp@aN@F@quantile_nr#d#d#d#&b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "quantile_nr(double, double, double, bool &)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 46,
+                "column": 10,
+                "hidden": false
+            },
+            {
+                "usr": "c:skew_normal.cpp@aN@F@quantile_bisection#d#d#d#&b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "quantile_bisection(double, double, double, bool &)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 74,
+                "column": 10,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@sn@F@pdf#d#d#d#d#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "pdf(double, double, double, double, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 109,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@sn@F@cdf#d#d#d#d#b#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "cdf(double, double, double, double, bool, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 116,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@sn@F@random#I#d#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "random(int, double, double, double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 125,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@sn@F@quantile#d#d#d#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "quantile(double, double, double, double, double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
+                "line": 143,
+                "column": 8,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.hpp",
+        "file_last_write": 1750320896.0,
+        "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/core/skew_t.cpp",
+        "file_last_write": 1750346759.0,
+        "definitions": [
+            {
+                "usr": "c:skew_t.cpp@aN@F@_cdf_tails_logp#d#d#d#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "_cdf_tails_logp(double, double, double, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_t.cpp",
+                "line": 25,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:skew_t.cpp@aN@F@_cdf_integer_nu_recursive#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "_cdf_integer_nu_recursive(double, double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_t.cpp",
+                "line": 56,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@st@F@pdf#d#d#d#d#d#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "pdf(double, double, double, double, double, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_t.cpp",
+                "line": 78,
+                "column": 12,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@st@F@random#I#d#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "random(int, double, double, double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_t.cpp",
+                "line": 98,
+                "column": 25,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@st@F@cdf#d#d#d#d#d#I#b#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "cdf(double, double, double, double, double, int, bool, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_t.cpp",
+                "line": 122,
+                "column": 12,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@st@F@quantile#d#d#d#d#d#d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "quantile(double, double, double, double, double, double, int)",
+                "file": "/home/guillaume/Documents/snCpp/src/core/skew_t.cpp",
+                "line": 172,
+                "column": 12,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/core/skew_t.hpp",
+        "file_last_write": 1750322052.0,
+        "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+        "file_last_write": 1750361355.0,
+        "definitions": [
+            {
+                "usr": "c:@F@dsn_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#d#d#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "dsn_cpp(Rcpp::NumericVector, double, double, double, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 11,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@psn_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#d#d#b#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "psn_cpp(Rcpp::NumericVector, double, double, double, bool, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 22,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@qsn_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#d#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "qsn_cpp(Rcpp::NumericVector, double, double, double, double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 33,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@rsn_cpp#I#d#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "rsn_cpp(int, double, double, double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 44,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@dst_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#d#d#d#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "dst_cpp(Rcpp::NumericVector, double, double, double, double, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 53,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@pst_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#d#d#d#I#b#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "pst_cpp(Rcpp::NumericVector, double, double, double, double, int, bool, bool)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 64,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@qst_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#d#d#d#d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "qst_cpp(Rcpp::NumericVector, double, double, double, double, double, int)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 76,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@rst_cpp#I#d#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "rst_cpp(int, double, double, double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 88,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@owens_T#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "owens_T(Rcpp::NumericVector, Rcpp::NumericVector)",
+                "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
+                "line": 94,
+                "column": 21,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/utils/integration.cpp",
+        "file_last_write": 1750328810.0,
+        "definitions": [
+            {
+                "usr": "c:@F@gsl_integrand_adapter#d#*v#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "gsl_integrand_adapter(double, void *)",
+                "file": "/home/guillaume/Documents/snCpp/src/utils/integration.cpp",
+                "line": 20,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@utils@F@integrate#$@N@std@S@function>#Fd(#d)#d#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "integrate(std::function<double (double)>, double, double, double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/utils/integration.cpp",
+                "line": 29,
+                "column": 15,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/utils/integration.hpp",
+        "file_last_write": 1750320290.0,
+        "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/utils/root_finding.cpp",
+        "file_last_write": 1750323902.0,
+        "definitions": [
+            {
+                "usr": "c:@N@utils@F@find_root_alternating#$@N@std@S@function>#Fd(#d)#d#d#d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "find_root_alternating(std::function<double (double)>, double, double, double, int)",
+                "file": "/home/guillaume/Documents/snCpp/src/utils/root_finding.cpp",
+                "line": 10,
+                "column": 8,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/utils/root_finding.hpp",
+        "file_last_write": 1750320480.0,
+        "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/utils/special_functions.cpp",
+        "file_last_write": 1750361733.0,
+        "definitions": [
+            {
+                "usr": "c:special_functions.cpp@aN@F@owens_t_engine#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "owens_t_engine(double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/utils/special_functions.cpp",
+                "line": 12,
+                "column": 10,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@utils@F@owens_t#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "owens_t(double, double)",
+                "file": "/home/guillaume/Documents/snCpp/src/utils/special_functions.cpp",
+                "line": 58,
+                "column": 10,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "/home/guillaume/Documents/snCpp/src/utils/special_functions.hpp",
+        "file_last_write": 1750356489.0,
+        "definitions": [],
+        "hidden": false
+    }
+]

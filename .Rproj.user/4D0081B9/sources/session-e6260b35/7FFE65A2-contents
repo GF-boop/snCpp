@@ -1,0 +1,103 @@
+#include <Rcpp.h>
+#include "special_functions.hpp" // Assuming this declares owens_T
+#include <cmath>
+
+// Define M_2PI if not already available from Rmath.h (which is included by Rcpp.h)
+#ifndef M_2PI
+#define M_2PI 6.28318530717958647692
+#endif
+
+namespace internal {
+  // This is a direct C++ port of the R sn:::T.int function's logic.
+  // It is known to match the reference package.
+  // It should only be called with non-negative h and a, and with a <= 1.
+  double owens_t_engine(double h, double a) {
+    
+    if (a == 0.0) return 0.0;
+    if (h == 0.0) return std::atan(a) / M_2PI;
+
+    // --- Approximation for large h, from sn:::T.int ---
+    if (h > 8.0) { // cut.point = 8 in R version
+        return std::atan(a) * std::exp(-0.5 * h * h * a / std::atan(a)) * (1.0 + 0.00868 * std::pow(h * a, 4)) / M_2PI;
+    }
+
+    // --- Series expansion for small h, from sn:::T.int ---
+    double h_sq = h * h;
+    double sum_fui = 1.0;
+    double fui = 1.0;
+    double sum_series = 0.0;
+    
+    // This loop replicates the series expansion from the R code.
+    // T = (atan(a) - sum_{i=0 to jmax} [ (1 - exp(-h^2/2) * sum_{k=0 to i}( (h^2/2)^k/k! )) * (-1)^i * a^(2i+1)/(2i+1) ]) / (2*pi)
+    for (int i = 0; i <= 50; ++i) { // jmax = 50 in R version
+        if (i > 0) {
+            fui = fui * (h_sq / 2.0) / i; // fui = (h^2/2)^i / i!
+            sum_fui += fui;
+        }
+
+        // term = (1 - exp(-h^2/2) * sum_fui) * (-1)^i * a^(2i+1) / (2i+1)
+        double b1 = std::exp(-0.5 * h_sq) * sum_fui;
+        double term_i = (1.0 - b1) * std::pow(a, 2.0 * i + 1.0) / (2.0 * i + 1.0);
+        
+        if (i % 2 == 1) { // if i is odd, sign is negative
+            sum_series -= term_i;
+        } else { // if i is even, sign is positive
+            sum_series += term_i;
+        }
+    }
+    
+    return (std::atan(a) - sum_series) / M_2PI;
+  }
+} // namespace internal
+
+
+// --- EXPORTED WRAPPER FUNCTION ---
+
+//' @title Owen's T function
+//' @description Computes Owen's T function, T(h, a).
+//' @param h A numeric vector.
+//' @param a A numeric vector.
+//' @return A numeric vector containing the values of T(h, a).
+//' @export
+// [[Rcpp::export(owens.T)]]
+Rcpp::NumericVector owens_T(Rcpp::NumericVector h, Rcpp::NumericVector a) {
+    int n_h = h.size();
+    int n_a = a.size();
+    if (n_h == 0 || n_a == 0) {
+        return Rcpp::NumericVector(0);
+    }
+    int n = std::max(n_h, n_a);
+    Rcpp::NumericVector out(n);
+
+    if (n_h < n) h = Rcpp::rep(h, Rcpp::ceil((double)n / n_h));
+    if (n_a < n) a = Rcpp::rep(a, Rcpp::ceil((double)n / n_a));
+
+    for (int i = 0; i < n; ++i) {
+        double hi = h[i];
+        double ai = a[i];
+
+        if (R_IsNA(hi) || R_IsNA(ai)) {
+            out[i] = R_NaN;
+            continue;
+        }
+        
+        double sign_a = (ai > 0) - (ai < 0);
+        ai = std::abs(ai);
+        hi = std::abs(hi);
+
+        if (ai <= 1.0) {
+            // *** FIX: Call the new, correct engine ***
+            out[i] = sign_a * internal::owens_t_engine(hi, ai);
+        } else {
+            // Use the stable recursive identity.
+            // T(h,a) = 1/2 * [P(h) + P(ah) - 2P(h)P(ah)] - T(ah, 1/a)
+            // *** FIX: Corrected T(h,1) formula inside this block ***
+            double p_h = R::pnorm(hi, 0.0, 1.0, 1, 0);
+            double p_ah = R::pnorm(ai * hi, 0.0, 1.0, 1, 0);
+            double t_rec = internal::owens_t_engine(ai * hi, 1.0 / ai);
+            
+            out[i] = sign_a * (0.5 * (p_h + p_ah) - p_h * p_ah - t_rec);
+        }
+    }
+    return out;
+}
