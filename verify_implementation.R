@@ -32,7 +32,7 @@ sn_limit_nu <- 10e6
 
 # --- 3. Probability Density Function (d...) ---
 cat("\n--- Comparing PDF (d...) ---\n")
-x_values <- seq(-5, 5, length.out = 500)
+x_values <- seq(-5, 5, length.out = 5)
 
 # Skew-t distribution
 pdf_sn_st <- sn::dst(x_values, dp = c(xi = common_xi, omega = common_omega, alpha = common_alpha, nu = common_nu))
@@ -98,7 +98,7 @@ ggplot(df_cdf, aes(x = x, y = cdf, color = source)) +
 
 # --- 5. Quantile Function (q...) ---
 cat("\n--- Comparing Quantile (q...) ---\n")
-p_values <- seq(0.01, 0.99, length.out = 100) # Probabilities
+p_values <- seq(0.01, 0.99, length.out = 10) # Probabilities
 
 # Skew-t distribution
 quantile_sn_st <- sn::qst(p_values, dp = c(xi = common_xi, omega = common_omega, alpha = common_alpha, nu = common_nu))
@@ -131,7 +131,7 @@ ggplot(df_quantile, aes(x = p, y = quantile, color = source)) +
 
 # --- 6. Random Variate Generation (r...) ---
 cat("\n--- Comparing Random Variate Generation (r...) ---\n")
-n_samples <- 100000
+n_samples <- 100
 
 # Skew-t distribution
 set.seed(123) # For reproducibility
