@@ -4,7 +4,7 @@
 \alias{qsn}
 \title{Skew-Normal Quantile Function}
 \usage{
-qsn(p, xi = 0, omega = 1, alpha = 0, tau = 0, tol = 1e-08)
+qsn(p, xi = 0, omega = 1, alpha = 0, tau = 0, tol = 1e-08, dp = NULL)
 }
 \arguments{
 \item{p}{A numeric vector of probabilities.}
@@ -18,6 +18,9 @@ qsn(p, xi = 0, omega = 1, alpha = 0, tau = 0, tol = 1e-08)
 \item{tau}{A parameter for generalized skew-normal (default: 0 for standard skew-normal).}
 
 \item{tol}{Tolerance for numerical approximation (default: 1e-8).}
+
+\item{dp}{A numeric vector representing location, scale, skewness and extension parameters.
+If specified, individual parameters (xi, omega, alpha, tau) cannot be set.}
 }
 \value{
 A numeric vector of quantile values.

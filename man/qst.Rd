@@ -4,7 +4,16 @@
 \alias{qst}
 \title{Skew-t Quantile Function}
 \usage{
-qst(p, xi = 0, omega = 1, alpha = 0, nu = Inf, tol = 1e-08, method = 0L)
+qst(
+  p,
+  xi = 0,
+  omega = 1,
+  alpha = 0,
+  nu = Inf,
+  tol = 1e-08,
+  method = 0L,
+  dp = NULL
+)
 }
 \arguments{
 \item{p}{A numeric vector of probabilities.}
@@ -20,6 +29,10 @@ qst(p, xi = 0, omega = 1, alpha = 0, nu = Inf, tol = 1e-08, method = 0L)
 \item{tol}{Tolerance for numerical approximation (default: 1e-8).}
 
 \item{method}{Integer; method for quantile calculation (default: 0).}
+
+\item{dp}{A numeric vector of length 4, whose elements represent location, scale (positive),
+slant and degrees of freedom, respectively. If `dp` is specified, the individual
+parameters (xi, omega, alpha, nu) cannot be set.}
 }
 \value{
 A numeric vector of quantile values.

@@ -4,7 +4,7 @@
 \alias{dst}
 \title{Skew-t Probability Density Function}
 \usage{
-dst(x, xi = 0, omega = 1, alpha = 0, nu = Inf, log_d = FALSE)
+dst(x, xi = 0, omega = 1, alpha = 0, nu = Inf, log_d = FALSE, dp = NULL)
 }
 \arguments{
 \item{x}{A numeric vector of quantiles.}
@@ -18,6 +18,10 @@ dst(x, xi = 0, omega = 1, alpha = 0, nu = Inf, log_d = FALSE)
 \item{nu}{Degrees of freedom (numeric, default: Inf for skew-normal limit). Must be positive.}
 
 \item{log_d}{Logical; if TRUE, probabilities p are given as log(p).}
+
+\item{dp}{A numeric vector of length 4, whose elements represent location, scale (positive),
+slant and degrees of freedom, respectively. If `dp` is specified, the individual
+parameters (xi, omega, alpha, nu) cannot be set.}
 }
 \value{
 A numeric vector of PDF values.

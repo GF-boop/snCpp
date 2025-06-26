@@ -4,7 +4,15 @@
 \alias{psn}
 \title{Skew-Normal Cumulative Distribution Function}
 \usage{
-psn(x, xi = 0, omega = 1, alpha = 0, lower_tail = TRUE, log_p = FALSE)
+psn(
+  x,
+  xi = 0,
+  omega = 1,
+  alpha = 0,
+  lower_tail = TRUE,
+  log_p = FALSE,
+  dp = NULL
+)
 }
 \arguments{
 \item{x}{A numeric vector of quantiles.}
@@ -18,6 +26,9 @@ psn(x, xi = 0, omega = 1, alpha = 0, lower_tail = TRUE, log_p = FALSE)
 \item{lower_tail}{Logical; if TRUE (default), probabilities are P(X <= x), otherwise P(X > x).}
 
 \item{log_p}{Logical; if TRUE, probabilities p are given as log(p).}
+
+\item{dp}{A numeric vector representing location, scale, and skewness parameters.
+If specified, individual parameters (xi, omega, alpha) cannot be set.}
 }
 \value{
 A numeric vector of CDF values.

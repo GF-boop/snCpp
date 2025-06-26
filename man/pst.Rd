@@ -12,7 +12,8 @@ pst(
   nu = Inf,
   method = 0L,
   lower_tail = TRUE,
-  log_p = FALSE
+  log_p = FALSE,
+  dp = NULL
 )
 }
 \arguments{
@@ -31,6 +32,10 @@ pst(
 \item{lower_tail}{Logical; if TRUE (default), probabilities are P(X <= x), otherwise P(X > x).}
 
 \item{log_p}{Logical; if TRUE, probabilities p are given as log(p).}
+
+\item{dp}{A numeric vector of length 4, whose elements represent location, scale (positive),
+slant and degrees of freedom, respectively. If `dp` is specified, the individual
+parameters (xi, omega, alpha, nu) cannot be set.}
 }
 \value{
 A numeric vector of CDF values.

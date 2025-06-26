@@ -4,7 +4,7 @@
 \alias{rst}
 \title{Skew-t Random Variate Generation}
 \usage{
-rst(n, xi = 0, omega = 1, alpha = 0, nu = Inf)
+rst(n, xi = 0, omega = 1, alpha = 0, nu = Inf, dp = NULL)
 }
 \arguments{
 \item{n}{Number of observations.}
@@ -16,6 +16,10 @@ rst(n, xi = 0, omega = 1, alpha = 0, nu = Inf)
 \item{alpha}{Skewness parameter (numeric, default: 0).}
 
 \item{nu}{Degrees of freedom (numeric, default: Inf for skew-normal limit). Must be positive.}
+
+\item{dp}{A numeric vector of length 4, whose elements represent location, scale (positive),
+slant and degrees of freedom, respectively. If `dp` is specified, the individual
+parameters (xi, omega, alpha, nu) cannot be set.}
 }
 \value{
 A numeric vector of random variates.

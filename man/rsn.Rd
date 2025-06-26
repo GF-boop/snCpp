@@ -4,7 +4,7 @@
 \alias{rsn}
 \title{Skew-Normal Random Variate Generation}
 \usage{
-rsn(n, xi = 0, omega = 1, alpha = 0, tau = 0)
+rsn(n, xi = 0, omega = 1, alpha = 0, tau = 0, dp = NULL)
 }
 \arguments{
 \item{n}{Number of observations.}
@@ -16,6 +16,9 @@ rsn(n, xi = 0, omega = 1, alpha = 0, tau = 0)
 \item{alpha}{Skewness parameter (numeric, default: 0).}
 
 \item{tau}{A parameter for generalized skew-normal (default: 0 for standard skew-normal).}
+
+\item{dp}{A numeric vector representing location, scale, skewness and extension parameters.
+If specified, individual parameters (xi, omega, alpha, tau) cannot be set.}
 }
 \value{
 A numeric vector of random variates.
