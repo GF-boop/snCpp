@@ -7,7 +7,7 @@
     },
     {
         "file": "/home/guillaume/Documents/snCpp/src/core/skew_normal.cpp",
-        "file_last_write": 1750363434.0,
+        "file_last_write": 1751001510.0,
         "definitions": [
             {
                 "usr": "c:skew_normal.cpp@aN@F@pdf_standard#d#d#",
@@ -183,7 +183,7 @@
     },
     {
         "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-        "file_last_write": 1750361355.0,
+        "file_last_write": 1751001521.0,
         "definitions": [
             {
                 "usr": "c:@F@dsn_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#d#d#b#",
@@ -191,7 +191,7 @@
                 "parent_name": "",
                 "name": "dsn_cpp(Rcpp::NumericVector, double, double, double, bool)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 11,
+                "line": 21,
                 "column": 21,
                 "hidden": false
             },
@@ -201,7 +201,7 @@
                 "parent_name": "",
                 "name": "psn_cpp(Rcpp::NumericVector, double, double, double, bool, bool)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 22,
+                "line": 44,
                 "column": 21,
                 "hidden": false
             },
@@ -211,7 +211,7 @@
                 "parent_name": "",
                 "name": "qsn_cpp(Rcpp::NumericVector, double, double, double, double, double)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 33,
+                "line": 67,
                 "column": 21,
                 "hidden": false
             },
@@ -221,7 +221,7 @@
                 "parent_name": "",
                 "name": "rsn_cpp(int, double, double, double, double)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 44,
+                "line": 89,
                 "column": 21,
                 "hidden": false
             },
@@ -231,7 +231,7 @@
                 "parent_name": "",
                 "name": "dst_cpp(Rcpp::NumericVector, double, double, double, double, bool)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 53,
+                "line": 110,
                 "column": 21,
                 "hidden": false
             },
@@ -241,7 +241,7 @@
                 "parent_name": "",
                 "name": "pst_cpp(Rcpp::NumericVector, double, double, double, double, int, bool, bool)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 64,
+                "line": 135,
                 "column": 21,
                 "hidden": false
             },
@@ -251,7 +251,7 @@
                 "parent_name": "",
                 "name": "qst_cpp(Rcpp::NumericVector, double, double, double, double, double, int)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 76,
+                "line": 160,
                 "column": 21,
                 "hidden": false
             },
@@ -261,7 +261,7 @@
                 "parent_name": "",
                 "name": "rst_cpp(int, double, double, double, double)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 88,
+                "line": 183,
                 "column": 21,
                 "hidden": false
             },
@@ -271,7 +271,7 @@
                 "parent_name": "",
                 "name": "owens_T(Rcpp::NumericVector, Rcpp::NumericVector)",
                 "file": "/home/guillaume/Documents/snCpp/src/exports.cpp",
-                "line": 94,
+                "line": 197,
                 "column": 21,
                 "hidden": false
             }
@@ -280,7 +280,7 @@
     },
     {
         "file": "/home/guillaume/Documents/snCpp/src/utils/integration.cpp",
-        "file_last_write": 1750328810.0,
+        "file_last_write": 1750441703.0,
         "definitions": [
             {
                 "usr": "c:@F@gsl_integrand_adapter#d#*v#",
@@ -313,7 +313,7 @@
     },
     {
         "file": "/home/guillaume/Documents/snCpp/src/utils/root_finding.cpp",
-        "file_last_write": 1750323902.0,
+        "file_last_write": 1751001510.0,
         "definitions": [
             {
                 "usr": "c:@N@utils@F@find_root_alternating#$@N@std@S@function>#Fd(#d)#d#d#d#I#",
@@ -330,7 +330,7 @@
     },
     {
         "file": "/home/guillaume/Documents/snCpp/src/utils/root_finding.hpp",
-        "file_last_write": 1750320480.0,
+        "file_last_write": 1751001510.0,
         "definitions": [],
         "hidden": false
     },

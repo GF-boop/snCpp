@@ -1,16 +1,24 @@
-# Compiler flags for your own headers only
-PKG_CPPFLAGS = -I./core -I./utils
+# 1. Define the object files that will be created from the source files.
+#    This line finds all .cpp files and converts their names to .o files.
+OBJECTS = $(patsubst %.cpp,%.o,$(wildcard *.cpp core/*.cpp utils/*.cpp))
+# OBJECTS = exports.o core/skew_normal.o core/skew_t.o utils/integration.o utils/root_finding.o utils/special_functions.o
 
-# List of object files to compile
-OBJECTS = \
-    RcppExports.o \
-    exports.o \
-    core/skew_normal.o \
-    core/skew_t.o \
-    utils/integration.o \
-    utils/root_finding.o \
-    utils/special_functions.o
+# 2. Set the C++ compiler flags (CXXFLAGS).
+#    - "-I./core" and "-I./utils" tell the compiler to look for headers in
+#      the 'core' and 'utils' subdirectories.
+#    - The Rcpp::CxxFlags() part adds the flags needed to work with Rcpp.
+PKG_CXXFLAGS = -I./core -I./utils `$(R_HOME)/bin/Rscript -e "Rcpp:::CxxFlags()"`
 
-# Linker flags for Rcpp and GSL
-# This explicitly adds GSL libraries to the linking step
-PKG_LIBS = $(shell PKG_LIBS=`Rscript -e "Rcpp:::LdFlags()"` $(R_HOME)/bin/R CMD config LDFLAGS) $(shell gsl-config --libs)
+# 3. Set the Linker flags (LIBS).
+#    This provides the necessary libraries from Rcpp and RcppGSL.
+PKG_LIBS = `$(R_HOME)/bin/Rscript -e "RcppGSL::LdFlags()"` `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"`
+
+# 4. The main linking rule.
+#    This tells 'make' that the final shared library ($(SHLIB)) depends on all
+#    the object files ($(OBJECTS)) and provides the command to link them.
+all: $(SHLIB)
+
+# 5. A clean rule to remove build artifacts.
+#    This is used by `R CMD build --preclean`.
+clean:
+	rm -f $(OBJECTS) $(SHLIB)

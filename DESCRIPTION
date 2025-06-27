@@ -9,7 +9,7 @@ Authors@R: c(
       role = c("aut", "cre")
     )
   )
-Imports: Rcpp, RcppGSL
+Imports: Rcpp
 LinkingTo: Rcpp, RcppGSL
 Description: More about what it does (maybe more than one line).
     Continuation lines should be indented.

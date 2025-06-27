@@ -1,0 +1,11 @@
+utils::globalVariables(c(
+  "_snCpp_dsn_cpp",
+  "_snCpp_dst_cpp",
+  "_snCpp_owens_T",
+  "_snCpp_psn_cpp",
+  "_snCpp_pst_cpp",
+  "_snCpp_qsn_cpp",
+  "_snCpp_qst_cpp",
+  "_snCpp_rsn_cpp",
+  "_snCpp_rst_cpp"
+))
