@@ -22,7 +22,7 @@ NULL
 #' dsn(1, alpha = 5)
 dsn <- function(x, xi = 0, omega = 1, alpha = 0, log_d = FALSE, dp = NULL) {
   if (!is.numeric(x)) stop("'x' must be numeric.")
-
+  
   if (!is.null(dp)) {
     if (!missing(xi) || !missing(omega) || !missing(alpha)) {
       stop("If 'dp' is specified, individual parameters (xi, omega, alpha) cannot be set.")
@@ -38,9 +38,10 @@ dsn <- function(x, xi = 0, omega = 1, alpha = 0, log_d = FALSE, dp = NULL) {
     if (!is.numeric(omega) || length(omega) != 1 || omega <= 0) stop("'omega' must be a single positive numeric value.")
     if (!is.numeric(alpha) || length(alpha) != 1) stop("'alpha' must be a single numeric value.")
   }
-
+  
   if (!is.logical(log_d) || length(log_d) != 1) stop("'log_d' must be a single logical value.")
-  dsn_cpp(x, xi, omega, alpha, log_d)
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_dsn_cpp", x, xi, omega, alpha, log_d)
 }
 
 #' Skew-Normal Cumulative Distribution Function
@@ -63,7 +64,7 @@ dsn <- function(x, xi = 0, omega = 1, alpha = 0, log_d = FALSE, dp = NULL) {
 #' psn(1, alpha = 5)
 psn <- function(x, xi = 0, omega = 1, alpha = 0, lower_tail = TRUE, log_p = FALSE, dp = NULL) {
   if (!is.numeric(x)) stop("'x' must be numeric.")
-
+  
   if (!is.null(dp)) {
     if (!missing(xi) || !missing(omega) || !missing(alpha)) {
       stop("If 'dp' is specified, individual parameters (xi, omega, alpha) cannot be set.")
@@ -79,10 +80,11 @@ psn <- function(x, xi = 0, omega = 1, alpha = 0, lower_tail = TRUE, log_p = FALS
     if (!is.numeric(omega) || length(omega) != 1 || omega <= 0) stop("'omega' must be a single positive numeric value.")
     if (!is.numeric(alpha) || length(alpha) != 1) stop("'alpha' must be a single numeric value.")
   }
-
+  
   if (!is.logical(lower_tail) || length(lower_tail) != 1) stop("'lower_tail' must be a single logical value.")
   if (!is.logical(log_p) || length(log_p) != 1) stop("'log_p' must be a single logical value.")
-  psn_cpp(x, xi, omega, alpha, lower_tail, log_p)
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_psn_cpp", x, xi, omega, alpha, lower_tail, log_p)
 }
 
 #' Skew-Normal Quantile Function
@@ -105,7 +107,7 @@ psn <- function(x, xi = 0, omega = 1, alpha = 0, lower_tail = TRUE, log_p = FALS
 #' qsn(0.9, alpha = -3)
 qsn <- function(p, xi = 0, omega = 1, alpha = 0, tau = 0, tol = 1e-8, dp = NULL) {
   if (!is.numeric(p) || any(p < 0 | p > 1)) stop("'p' must be numeric and between 0 and 1.")
-
+  
   if (!is.null(dp)) {
     if (!missing(xi) || !missing(omega) || !missing(alpha) || !missing(tau)) {
       stop("If 'dp' is specified, individual parameters (xi, omega, alpha, tau) cannot be set.")
@@ -123,9 +125,10 @@ qsn <- function(p, xi = 0, omega = 1, alpha = 0, tau = 0, tol = 1e-8, dp = NULL)
     if (!is.numeric(alpha) || length(alpha) != 1) stop("'alpha' must be a single numeric value.")
     if (!is.numeric(tau) || length(tau) != 1) stop("'tau' must be a single numeric value.")
   }
-
+  
   if (!is.numeric(tol) || length(tol) != 1 || tol <= 0) stop("'tol' must be a single positive numeric value.")
-  qsn_cpp(p, xi, omega, alpha, tau, tol)
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_qsn_cpp", p, xi, omega, alpha, tau, tol)
 }
 
 #' Skew-Normal Random Variate Generation
@@ -147,7 +150,7 @@ qsn <- function(p, xi = 0, omega = 1, alpha = 0, tau = 0, tol = 1e-8, dp = NULL)
 #' rsn(5, alpha = 10)
 rsn <- function(n, xi = 0, omega = 1, alpha = 0, tau = 0, dp = NULL) {
   if (!is.numeric(n) || length(n) != 1 || n < 1 || floor(n) != n) stop("'n' must be a single positive integer.")
-
+  
   if (!is.null(dp)) {
     if (!missing(xi) || !missing(omega) || !missing(alpha) || !missing(tau)) {
       stop("If 'dp' is specified, individual parameters (xi, omega, alpha, tau) cannot be set.")
@@ -165,8 +168,9 @@ rsn <- function(n, xi = 0, omega = 1, alpha = 0, tau = 0, dp = NULL) {
     if (!is.numeric(alpha) || length(alpha) != 1) stop("'alpha' must be a single numeric value.")
     if (!is.numeric(tau) || length(tau) != 1) stop("'tau' must be a single numeric value.")
   }
-
-  rsn_cpp(n, xi, omega, alpha, tau)
+  
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_rsn_cpp", n, xi, omega, alpha, tau)
 }
 
 
@@ -193,7 +197,7 @@ rsn <- function(n, xi = 0, omega = 1, alpha = 0, tau = 0, dp = NULL) {
 #' dst(1, alpha = 5, nu = 10)
 dst <- function(x, xi = 0, omega = 1, alpha = 0, nu = Inf, log_d = FALSE, dp = NULL) {
   if (!is.numeric(x)) stop("'x' must be numeric.")
-
+  
   if (!is.null(dp)) {
     if (!missing(xi) || !missing(omega) || !missing(alpha) || !missing(nu)) {
       stop("If 'dp' is specified, individual parameters (xi, omega, alpha, nu) cannot be set.")
@@ -211,9 +215,10 @@ dst <- function(x, xi = 0, omega = 1, alpha = 0, nu = Inf, log_d = FALSE, dp = N
     if (!is.numeric(alpha) || length(alpha) != 1) stop("'alpha' must be a single numeric value.")
     if (!is.numeric(nu) || length(nu) != 1 || nu <= 0) stop("'nu' must be a single positive numeric value (or Inf).")
   }
-
+  
   if (!is.logical(log_d) || length(log_d) != 1) stop("'log_d' must be a single logical value.")
-  dst_cpp(x, xi, omega, alpha, nu, log_d)
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_dst_cpp", x, xi, omega, alpha, nu, log_d)
 }
 
 #' Skew-t Cumulative Distribution Function
@@ -239,7 +244,7 @@ dst <- function(x, xi = 0, omega = 1, alpha = 0, nu = Inf, log_d = FALSE, dp = N
 #' pst(1, alpha = 5, nu = 10)
 pst <- function(x, xi = 0, omega = 1, alpha = 0, nu = Inf, method = 0L, lower_tail = TRUE, log_p = FALSE, dp = NULL) {
   if (!is.numeric(x)) stop("'x' must be numeric.")
-
+  
   if (!is.null(dp)) {
     if (!missing(xi) || !missing(omega) || !missing(alpha) || !missing(nu)) {
       stop("If 'dp' is specified, individual parameters (xi, omega, alpha, nu) cannot be set.")
@@ -257,11 +262,12 @@ pst <- function(x, xi = 0, omega = 1, alpha = 0, nu = Inf, method = 0L, lower_ta
     if (!is.numeric(alpha) || length(alpha) != 1) stop("'alpha' must be a single numeric value.")
     if (!is.numeric(nu) || length(nu) != 1 || nu <= 0) stop("'nu' must be a single positive numeric value (or Inf).")
   }
-
+  
   if (!is.numeric(method) || length(method) != 1) stop("'method' must be a single integer.")
   if (!is.logical(lower_tail) || length(lower_tail) != 1) stop("'lower_tail' must be a single logical value.")
   if (!is.logical(log_p) || length(log_p) != 1) stop("'log_p' must be a single logical value.")
-  pst_cpp(x, xi, omega, alpha, nu, method, lower_tail, log_p)
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_pst_cpp", x, xi, omega, alpha, nu, method, lower_tail, log_p)
 }
 
 #' Skew-t Quantile Function
@@ -286,7 +292,7 @@ pst <- function(x, xi = 0, omega = 1, alpha = 0, nu = Inf, method = 0L, lower_ta
 #' qst(0.9, alpha = -3, nu = 10)
 qst <- function(p, xi = 0, omega = 1, alpha = 0, nu = Inf, tol = 1e-8, method = 0L, dp = NULL) {
   if (!is.numeric(p) || any(p < 0 | p > 1)) stop("'p' must be numeric and between 0 and 1.")
-
+  
   if (!is.null(dp)) {
     if (!missing(xi) || !missing(omega) || !missing(alpha) || !missing(nu)) {
       stop("If 'dp' is specified, individual parameters (xi, omega, alpha, nu) cannot be set.")
@@ -304,10 +310,11 @@ qst <- function(p, xi = 0, omega = 1, alpha = 0, nu = Inf, tol = 1e-8, method = 
     if (!is.numeric(alpha) || length(alpha) != 1) stop("'alpha' must be a single numeric value.")
     if (!is.numeric(nu) || length(nu) != 1 || nu <= 0) stop("'nu' must be a single positive numeric value (or Inf).")
   }
-
+  
   if (!is.numeric(tol) || length(tol) != 1 || tol <= 0) stop("'tol' must be a single positive numeric value.")
   if (!is.numeric(method) || length(method) != 1) stop("'method' must be a single integer.")
-  qst_cpp(p, xi, omega, alpha, nu, tol, method)
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_qst_cpp", p, xi, omega, alpha, nu, tol, method)
 }
 
 #' Skew-t Random Variate Generation
@@ -330,7 +337,7 @@ qst <- function(p, xi = 0, omega = 1, alpha = 0, nu = Inf, tol = 1e-8, method = 
 #' rst(5, alpha = 10, nu = 20)
 rst <- function(n, xi = 0, omega = 1, alpha = 0, nu = Inf, dp = NULL) {
   if (!is.numeric(n) || length(n) != 1 || n < 1 || floor(n) != n) stop("'n' must be a single positive integer.")
-
+  
   if (!is.null(dp)) {
     if (!missing(xi) || !missing(omega) || !missing(alpha) || !missing(nu)) {
       stop("If 'dp' is specified, individual parameters (xi, omega, alpha, nu) cannot be set.")
@@ -348,8 +355,9 @@ rst <- function(n, xi = 0, omega = 1, alpha = 0, nu = Inf, dp = NULL) {
     if (!is.numeric(alpha) || length(alpha) != 1) stop("'alpha' must be a single numeric value.")
     if (!is.numeric(nu) || length(nu) != 1 || nu <= 0) stop("'nu' must be a single positive numeric value (or Inf).")
   }
-
-  rst_cpp(n, xi, omega, alpha, nu)
+  
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_rst_cpp", n, xi, omega, alpha, nu)
 }
 
 # --- Special Functions ---
@@ -369,7 +377,7 @@ rst <- function(n, xi = 0, omega = 1, alpha = 0, nu = Inf, dp = NULL) {
 owens.T <- function(h, a) {
   if (!is.numeric(h)) stop("'h' must be numeric.")
   if (!is.numeric(a)) stop("'a' must be numeric.")
-
-  # CORRECT: Calling the C++ function with an underscore
-  owens_T(h, a)
+  
+  # MODIFIED: Direct call to registered C++ routine
+  .Call("_snCpp_owens_T", h, a)
 }
